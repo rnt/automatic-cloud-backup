@@ -3,8 +3,8 @@ PASSWORD=yourpassword
 INSTANCE=example.atlassian.net
 LOCATION=/where/to/store/the/file
 
-# Append a timestamp to the backed up file (true/false). Set to false if an  
-# external backup applications handles backup rotatoin. 
+# Append a timestamp to the backed up file (true/false). Set to false if an
+# external backup applications handles backup rotation.
 TIMESTAMP=true
 
 # Set this to your Atlassian instance's timezone.
@@ -12,8 +12,10 @@ TIMESTAMP=true
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 TIMEZONE=America/Los_Angeles
 
-# Set how many seconds to sleep till the next check if the backup is ready to download
-SLEEP_SECONDS=10
+# Set how many seconds to sleep till the next check if the backup is ready
+# to download.
+SLEEP_SECONDS=30
 
-# Set how often the progress of the backup should be checked before to exit the script.
+# Set how often the progress of the backup should be checked before to exit
+# the script.
 PROGRESS_CHECKS=20
