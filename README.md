@@ -86,11 +86,6 @@ docker run --detach --tty --interactive \
 -e SLEEP_SECONDS=60 \
 -e PROGRESS_CHECKS=100 \
 -e VERBOSE=1 \
--e UPLOAD_BACKUP='aws_s3' \
--e AWS_S3_BUCKET='bucket' \
--e AWS_S3_BUCKET_ZONE='s3-us-west-2' \
--e AWS_S3_KEY='key' \
--e AWS_S3_SECRET='key' \
 --mount type=bind,source="$(pwd)"/download,target=/download \
 --name jira-backup atlassian-cloud-backup:latest
 ```
@@ -109,16 +104,18 @@ docker run --detach --tty --interactive \
 -e PROGRESS_CHECKS=100 \
 -e VERBOSE=1 \
 -e SOURCE='confluence' \
+--mount type=bind,source="$(pwd)"/download,target=/download \
+--name confluence-backup atlassian-cloud-backup:latest
+```
+
+If you need to upload the backup to AWS S3, add the next environment variables to `docker run`:
+```
 -e UPLOAD_BACKUP='aws_s3' \
 -e AWS_S3_BUCKET='bucket' \
 -e AWS_S3_BUCKET_ZONE='s3-us-west-2' \
 -e AWS_S3_KEY='key' \
 -e AWS_S3_SECRET='key' \
---mount type=bind,source="$(pwd)"/download,target=/download \
---name confluence-backup atlassian-cloud-backup:latest
 ```
-
-
 
 # Contributing
 
