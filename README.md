@@ -70,7 +70,7 @@ The authorization cookie is used for three things:
 
 Building:
 ```
-docker build . -t atlassian-cloud-backup:latest
+docker build -t atlassian-cloud-backup .
 ```
 
 Running for Jira:
