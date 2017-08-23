@@ -145,12 +145,10 @@ fi
 BKPMSG=$(curl -s --cookie $COOKIE_FILE_LOCATION --header "X-Atlassian-Token: no-check" -H "X-Requested-With: XMLHttpRequest" -H "Content-Type: application/json" -X POST $RUNBACKUP_URL -d "{\"cbAttachments\":\"${ATTACHMENTS}\" }" )
 
 # Checks if we were authorized to create a new backup
-if [ "$(echo "$BKPMSG" | grep -c Unauthorized)" -ne 0 ]  || [ "$(echo "$BKPMSG" | grep -ic "<status-code>401</status-code>")" -ne 0 ]; then
+if [ "$(echo "$BKPMSG" | grep -c -e Unauthorized -e "dead link")" -ne 0 ]  || [ "$(echo "$BKPMSG" | grep -ic "<status-code>401</status-code>")" -ne 0 ]; then
     show_error "Authorization failure in $INSTANCE with username $USERNAME"
     exit 2
 fi
-
-set -x
 
 #Checks if the backup exists every 10 seconds, 20 times. If you have a bigger instance with a larger backup file you'll probably want to increase that.
 for (( c=1; c<=$PROGRESS_CHECKS; c++ )) do
