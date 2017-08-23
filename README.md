@@ -76,7 +76,7 @@ docker build -t atlassian-cloud-backup .
 Running for Jira:
 ```
 mkdir download
-docker run --detach --tty --interactive \
+docker run -it \
 -e USERNAME='youruser' \
 -e PASSWORD='yourpassword' \
 -e INSTANCE='example.atlassian.net' \
@@ -93,7 +93,7 @@ docker run --detach --tty --interactive \
 Running for Confluence:
 ```
 mkdir download
-docker run --detach --tty --interactive \
+docker run -it \
 -e USERNAME='youruser' \
 -e PASSWORD='yourpassword' \
 -e INSTANCE='example.atlassian.net' \
