@@ -87,7 +87,7 @@ docker run -it \
 -e PROGRESS_CHECKS=100 \
 -e VERBOSE=1 \
 --mount type=bind,source="$(pwd)"/download,target=/download \
---name jira-backup atlassian-cloud-backup:latest
+--name jira-backup atlassian-cloud-backup
 ```
 
 Running for Confluence:
@@ -105,7 +105,7 @@ docker run -it \
 -e VERBOSE=1 \
 -e SOURCE='confluence' \
 --mount type=bind,source="$(pwd)"/download,target=/download \
---name confluence-backup atlassian-cloud-backup:latest
+--name confluence-backup atlassian-cloud-backup
 ```
 
 If you need to upload the backup to AWS S3, add the next environment variables to `docker run`:
