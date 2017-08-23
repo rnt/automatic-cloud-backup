@@ -7,5 +7,6 @@ RUN yum -y update &&\
     yum -y -q install curl jq
 
 COPY backup.sh /backup.sh
+COPY upload_aws_s3.sh /upload_aws_s3.sh
 
 CMD ["/bin/bash", "/backup.sh"]

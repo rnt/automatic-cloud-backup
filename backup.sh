@@ -181,4 +181,9 @@ else
     curl -s -S -L --cookie $COOKIE_FILE_LOCATION "$DOWNLOAD_URL/$FILE_NAME" -o "$OUTFILE"
 fi
 
+if [[ -n "$UPLOAD_BACKUP" && -e "upload_${UPLOAD_BACKUP}.sh" ]]; then
+    show_log "Executing upload_${UPLOAD_BACKUP}.sh"
+    sh upload_$UPLOAD_BACKUP.sh --file "$OUTFILE"
+fi
+
 show_log "All done ;)"
