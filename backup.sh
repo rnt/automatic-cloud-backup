@@ -119,9 +119,9 @@ TODAY=$(TZ=$TIMEZONE date +%Y%m%d)
 # prevent just that. The former is useful when an external backup program
 # handles backup rotation.
 if [ $TIMESTAMP = "true" ]; then
-    OUTFILE="${LOCATION}/$FILEPREFIX-backup-${TODAY}.zip"
+    OUTFILE="${LOCATION}/${FILEPREFIX}-${INSTANCE}-backup-${TODAY}.zip"
 elif [ $TIMESTAMP = "false" ]; then
-    OUTFILE="${LOCATION}/$FILEPREFIX-backup.zip"
+    OUTFILE="${LOCATION}/${FILEPREFIX}-${INSTANCE}-backup.zip"
 else
     show_error "Invalid value for TIMESTAMP: should be either \"true\" or \"false\""
     exit 1
