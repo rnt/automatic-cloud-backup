@@ -23,14 +23,7 @@ fi
 
 DOWNLOAD_URL="https://${INSTANCE}"
 INSTANCE_PATH=$INSTANCE
-
-if [[  $2 == "wiki" ]] || [[ $2 == "confluence" ]]; then
-    INSTANCE_PATH=$INSTANCE/wiki
-    DOWNLOAD_URL="https://${INSTANCE_PATH}/download"
-    FILEPREFIX="CONFLUENCE"
-else
-    FILEPREFIX="JIRA"
-fi
+FILEPREFIX="JIRA"
 
 function show_help(){
     cat - << _EOF
